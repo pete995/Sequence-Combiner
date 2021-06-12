@@ -92,11 +92,7 @@ def main():
                 if (channels_xy)[0] == 0:
                     result[y,x] = median[y,x]
 
-        cv2.imshow("Result", result)
-
         cv2.imwrite(outputName, result)
-
-        cv2.waitKey(0)
     else:
         print("No folder passed into arguments")
 
