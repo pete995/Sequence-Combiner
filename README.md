@@ -1,5 +1,7 @@
 Takes folder of bunch of images of moving object and combines them into one sequence image
 
+https://github.com/pete995/Sequence-Combiner/blob/master/banner.jpg
+
 Usage:
   -install python and pip
   -install opencv by running command line argument "pip install opencv-python"
