@@ -11,5 +11,4 @@ Extra command line arguments:
   -useDilate = uses dilate to help motion detection
   -width = custom width to output
   -height = custom height to output
-  -o= = custom output name
-       
+  -o= = custom output name (defaults to out.jpg)
