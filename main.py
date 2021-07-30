@@ -18,8 +18,8 @@ def main():
         
         outputName = "out.jpg"
         for arg in sys.argv:
-            if arg.startswith("o="):
-                outputName = arg.replace("o=", "")
+            if arg.lower().startswith("o="):
+                outputName = arg.lower().replace("o=", "")
             elif arg.lower().startswith("treshold="):
                 tresHold = int(arg.lower().replace("treshold=", ""))
             elif arg.lower().startswith("width="):
@@ -30,17 +30,19 @@ def main():
         resize = customHeight != 0 and customWidth != 0
 
         folder = sys.argv[1]
+        #store files in given folder
         onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
 
+        #first image
         path = folder + str("/" + str(onlyfiles[0]))
-        diff = cv2.imread(path)
+        image = cv2.imread(path)
 
         if resize:
-            diff = cv2.resize(diff, (customWidth, customHeight))
+            image = cv2.resize(image, (customWidth, customHeight))
 
-        imageHeight, imageWidth, numChannels = diff.shape
+        imageHeight, imageWidth, numChannels = image.shape
 
-        images = [diff]
+        images = [image]
 
         #add images in folder to images array
         for file in onlyfiles[1:]:
@@ -62,10 +64,12 @@ def main():
                 half = int(len(images) / 2)
                 median[y,x] = pixels[half]
 
+        #grayscale median image
         grayMedian = cv2.cvtColor(median, cv2.COLOR_BGR2GRAY)
         if useBlur:
             grayMedian = cv2.GaussianBlur(grayMedian, (21, 21), 0)
 
+        #create result image
         result = np.zeros((imageHeight,imageWidth,3), np.uint8)
         for image in images:
             grayImage = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
