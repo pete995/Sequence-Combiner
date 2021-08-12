@@ -8,9 +8,9 @@ Usage:
   -run main.py with command "python .\main.py yourfoldernamehere useBlur useDilate treshold=50 o=out.jpg"
     
 Extra command line arguments:
-  * -treshold= = custom treshold (defaults to 50)
-  * -useBlur = uses blur to help motion detection
-  * -useDilate = uses dilate to help motion detection
-  * -width = custom width to output
-  * -height = custom height to output
-  * -o= = custom output name (defaults to out.jpg)
+  -treshold= = custom treshold (defaults to 50) <br/>
+  -useBlur = uses blur to help motion detection <br/>
+  -useDilate = uses dilate to help motion detection <br/>
+  -width = custom width to output <br/>
+  -height = custom height to output <br/>
+  -o= = custom output name (defaults to out.jpg) <br/>
